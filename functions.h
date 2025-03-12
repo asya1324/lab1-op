@@ -9,11 +9,11 @@ struct atb {
     
 };
 
-atb prodprsum(atb grnfinal1, atb grnfinal2);
+void prodprsum(atb &tsina1, atb tsina2);
 
-atb prodprmult(atb tsina, int kil);
+void prodprmult(atb &tsina, int kil);
 
-atb pround(atb sum);
+void pround(atb &sum);
 
 void print(atb sum);
 

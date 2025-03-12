@@ -2,18 +2,8 @@
 #include <stdio.h>
 #include "functions.h"
 using namespace std;
-    
-    
-
-atb prodprmult(atb tsina, int kil);
-atb prodprsum(atb grnfinal1, atb grnfinal2);
-atb pround(atb sum);
-void print(atb sum);
-
 
 int main() {
-    
-    
     atb tsina;
 
     atb sum = {0,0};
@@ -29,9 +19,9 @@ int main() {
 
         while(fscanf(product, "%d %hi %d", &tsina.gryvna, &tsina.kopyika, &kil) == 3) {
 
-            tsina = prodprmult(tsina, kil);
+            prodprmult(tsina, kil);
 
-            sum = prodprsum(sum, tsina);
+            prodprsum(sum, tsina);
             
         }
 

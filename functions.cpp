@@ -2,9 +2,7 @@
 #include "functions.h"
 using namespace std;
 
-
-
-atb prodprmult(atb tsina, int kil) {
+void prodprmult(atb &tsina, int kil) {
     
     int convtsin = tsina.gryvna * 100 + tsina.kopyika;
     
@@ -13,32 +11,25 @@ atb prodprmult(atb tsina, int kil) {
     tsina.gryvna = convtsin / 100;
     
     tsina.kopyika = convtsin % 100;
-
-    return tsina;
 }
 
-atb prodprsum(atb tsina1, atb tsina2) {
+void  prodprsum(atb &tsina1, atb tsina2) {
     
-    
-    atb sum;
-    
-    sum.gryvna = tsina1.gryvna + tsina2.gryvna;
-    
-    sum.kopyika =tsina1.kopyika + tsina2.kopyika;
+    tsina1.gryvna += tsina2.gryvna;
+    tsina1.kopyika += tsina2.kopyika;
     
     
 
-    if (sum.kopyika >= 100) {
+    if (tsina1.kopyika >= 100) {
         
-        sum.gryvna++;
+        tsina1.gryvna++;
         
-        sum.kopyika = sum.kopyika - 100;
+        tsina1.kopyika -= 100;
     }
 
-    return sum;
 }
 
-atb pround(atb sum) {
+void pround(atb &sum) {
     
     if (sum.kopyika % 10 >= 5) {
         
@@ -56,7 +47,6 @@ atb pround(atb sum) {
         sum.kopyika = sum.kopyika - 100;
     }
     
-    return sum;
 }
 
 void print(atb sum) {
@@ -64,5 +54,7 @@ void print(atb sum) {
     
     cout << "Sum: " << sum.gryvna << "." << sum.kopyika << " uah" << endl;
     
-    cout << "Rounded Sum: " << pround(sum).gryvna << "." << pround(sum).kopyika << " uah" << endl;
+    pround(sum);
+    
+    cout << "Rounded Sum: " << sum.gryvna << "." << sum.kopyika << " uah" << endl;
 }
